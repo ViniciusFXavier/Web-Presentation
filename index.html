@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Exemplo de Workers</title>
+  <script>
+    function openWebWorker() {
+      window.open('web-worker/index.html');
+    }
+    function openSharedWorkerChat() {
+      window.open('shared-worker/chat/index.html');
+    }
+    function openSharedWorkerText() {
+      window.open('shared-worker/text-analyser/index.html');
+    }
+  </script>
+</head>
+
+<body>
+  <p><button type=button onclick="openWebWorker()">Web Worker</button></p>
+  <p><button type=button onclick="openSharedWorkerChat()">Shared Worker chat</button></p>
+  <p><button type=button onclick="openSharedWorkerText()">Shared Worker Text</button></p>
+</body>
+
+</html>

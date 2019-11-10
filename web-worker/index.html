@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+  <p>Contador: <output id="result"></output></p>
+  <button onclick="startWorker()">Iniciar Worker</button>
+  <button onclick="stopWorker()">Parar Worker</button>
+  <button onclick="alert('O Navegador ainda responde')">Resposta do Navegador</button>
+
+  <script>
+    var worker;
+
+    function startWorker() {
+      if (typeof (Worker) !== "undefined") {
+        if (typeof (worker) == "undefined") {
+          worker = new Worker("worker.js");
+        }
+        worker.onmessage = function (event) {
+          document.getElementById("result").innerHTML = event.data;
+        };
+      } else {
+        document.getElementById("result").innerHTML = "O navegador não suporta Web Workers.";
+      }
+    }
+
+    function stopWorker() {
+      worker.terminate();
+      worker = undefined;
+    }
+  </script>
+
+</body>
+
+</html>
